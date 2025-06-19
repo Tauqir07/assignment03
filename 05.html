@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Second Largest & Second Smallest Finder</title>
+</head>
+<body>
+  <h2>Find Second Largest and Second Smallest Number</h2>
+
+  <label for="numbers">Enter numbers (comma-separated):</label><br>
+  <input type="text" id="numbers" placeholder="e.g., 5,1,9,3,2,5"><br><br>
+  
+  <button onclick="findSecondValues()">Find</button>
+
+  <p id="result"></p>
+
+  <script>
+    function findSecondLargestAndSmallest(arr) {
+      if (arr.length < 2) {
+        return "Array must contain at least two numbers.";
+      }
+
+      // Remove duplicates
+      const uniqueArr = [...new Set(arr)];
+
+      if (uniqueArr.length < 2) {
+        return "Not enough unique numbers to determine second values.";
+      }
+
+      // Sort the array
+      uniqueArr.sort((a, b) => a - b);
+
+      const secondSmallest = uniqueArr[1];
+      const secondLargest = uniqueArr[uniqueArr.length - 2];
+
+      return {
+        secondSmallest,
+        secondLargest
+      };
+    }
+
+    function findSecondValues() {
+      const input = document.getElementById("numbers").value;
+      const numArray = input.split(',').map(Number).filter(n => !isNaN(n));
+
+      const result = findSecondLargestAndSmallest(numArray);
+
+      if (typeof result === "string") {
+        document.getElementById("result").innerText = result;
+      } else {
+        document.getElementById("result").innerText =
+          `Second Smallest: ${result.secondSmallest}, Second Largest: ${result.secondLargest}`;
+      }
+    }
+  </script>
+</body>
+</html>
