@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Armstrong Number Checker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 5px;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Armstrong Number Checker</h1>
+  <input type="number" id="numberInput" placeholder="Enter a number" />
+  <button onclick="checkArmstrong()">Check</button>
+  <div id="result"></div>
+
+  <script>
+    function isArmstrongNumber(number) {
+      const numStr = number.toString();
+      const numDigits = numStr.length;
+      let sum = 0;
+
+      for (let digit of numStr) {
+        sum += Math.pow(parseInt(digit), numDigits);
+      }
+
+      return sum === number;
+    }
+
+    function checkArmstrong() {
+      const input = document.getElementById('numberInput').value;
+      const number = parseInt(input);
+      const resultDiv = document.getElementById('result');
+
+      if (isNaN(number)) {
+        resultDiv.textContent = "Please enter a valid number.";
+        return;
+      }
+
+      if (isArmstrongNumber(number)) {
+        resultDiv.textContent = `${number} is an Armstrong number.`;
+      } else {
+        resultDiv.textContent = `${number} is NOT an Armstrong number.`;
+      }
+    }
+  </script>
+</body>
+</html>

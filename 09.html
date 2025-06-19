@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FizzBuzz Output</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #f9f9f9;
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+    }
+    #output {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+    .box {
+      width: 80px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      font-weight: bold;
+      background-color: #e0e0e0;
+    }
+    .fizz {
+      background-color: #a0e7a0;
+      color: #056605;
+    }
+    .buzz {
+      background-color: #a0d0f0;
+      color: #055c9d;
+    }
+    .fizzbuzz {
+      background-color: #dab0f0;
+      color: #67009b;
+    }
+  </style>
+</head>
+<body>
+  <h1>FizzBuzz from 1 to 100</h1>
+  <div id="output"></div>
+
+  <script>
+    const outputDiv = document.getElementById('output');
+
+    for (let i = 1; i <= 100; i++) {
+      let text = '';
+      let className = 'box';
+
+      if (i % 15 === 0) {
+        text = 'FizzBuzz';
+        className += ' fizzbuzz';
+      } else if (i % 3 === 0) {
+        text = 'Fizz';
+        className += ' fizz';
+      } else if (i % 5 === 0) {
+        text = 'Buzz';
+        className += ' buzz';
+      } else {
+        text = i;
+      }
+
+      const div = document.createElement('div');
+      div.className = className;
+      div.textContent = text;
+      outputDiv.appendChild(div);
+    }
+  </script>
+</body>
+</html>
+

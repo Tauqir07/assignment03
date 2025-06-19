@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Palindrome Number Checker</title>
+</head>
+<body>
+  <h2>Check if a Number is a Palindrome</h2>
+
+  <input type="number" id="numberInput" placeholder="Enter a number">
+  <button onclick="checkPalindrome()">Check</button>
+
+  <p id="result"></p>
+
+  <script>
+    function isPalindromeNumber(num) {
+      const original = num.toString();
+      const reversed = original.split('').reverse().join('');
+      return original === reversed;
+    }
+
+    function checkPalindrome() {
+      const input = document.getElementById("numberInput").value;
+      const number = parseInt(input);
+
+      if (isNaN(number)) {
+        document.getElementById("result").innerText = "Please enter a valid number.";
+        return;
+      }
+
+      const result = isPalindromeNumber(number)
+        ? `${number} is a Palindrome Number!`
+        : `${number} is NOT a Palindrome Number.`;
+
+      document.getElementById("result").innerText = result;
+    }
+  </script>
+</body>
+</html>
