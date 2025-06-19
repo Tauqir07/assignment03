@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Odd Numbers Filter</title>
+</head>
+<body>
+  <h2>Filter Odd Numbers from Array</h2>
+
+  <input type="text" id="numberInput" placeholder="Enter numbers (e.g., 1,2,3,4)">
+  <button onclick="filterOdd()">Filter Odd Numbers</button>
+
+  <p id="output"></p>
+
+  <script>
+    function getOddNumbers(arr) {
+      return arr.filter(num => num % 2 !== 0);
+    }
+
+    function filterOdd() {
+      const input = document.getElementById("numberInput").value;
+      const numArray = input.split(',').map(Number).filter(n => !isNaN(n));
+      const oddArray = getOddNumbers(numArray);
+      document.getElementById("output").innerText = `Odd Numbers: ${oddArray.join(', ')}`;
+    }
+  </script>
+</body>
+</html>
