@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>First 1000 Prime Numbers</title>
+</head>
+<body>
+  <h2>Sum of First 1000 Prime Numbers</h2>
+  <p id="sum"></p>
+
+  <script>
+    function isPrime(num) {
+      if (num < 2) return false;
+      for (let i = 2; i * i <= num; i++) {
+        if (num % i === 0) return false;
+      }
+      return true;
+    }
+
+    function getFirst1000Primes() {
+      const primes = [];
+      let num = 2;
+      while (primes.length < 1000) {
+        if (isPrime(num)) {
+          primes.push(num);
+        }
+        num++;
+      }
+      return primes;
+    }
+
+    const primeNumbers = getFirst1000Primes();
+    const sum = primeNumbers.reduce((acc, curr) => acc + curr, 0);
+
+    console.log("First 1000 Prime Numbers:", primeNumbers);
+    console.log("Sum of First 1000 Prime Numbers:", sum);
+
+    document.getElementById("sum").innerText = `Sum of first 1000 prime numbers: ${sum}`;
+  </script>
+</body>
+</html>
