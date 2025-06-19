@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Swap Two Numbers</title>
+</head>
+<body>
+  <h2>Swap Two Numbers in JavaScript</h2>
+
+  <p id="before1"></p>
+  <p id="after1"></p>
+  <hr>
+  <p id="before2"></p>
+  <p id="after2"></p>
+
+  <script>
+    // --- Swap using a third variable ---
+    let a = 5;
+    let b = 10;
+    document.getElementById("before1").innerText = `Using Third Variable - Before Swap: a = ${a}, b = ${b}`;
+
+    let temp = a;
+    a = b;
+    b = temp;
+    document.getElementById("after1").innerText = `Using Third Variable - After Swap: a = ${a}, b = ${b}`;
+
+    // --- Swap without using a third variable ---
+    let x = 15;
+    let y = 20;
+    document.getElementById("before2").innerText = `Without Third Variable - Before Swap: x = ${x}, y = ${y}`;
+
+    x = x + y;
+    y = x - y;
+    x = x - y;
+    document.getElementById("after2").innerText = `Without Third Variable - After Swap: x = ${x}, y = ${y}`;
+  </script>
+</body>
+</html>
